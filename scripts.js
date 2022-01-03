@@ -1,5 +1,7 @@
 let computerChoice;
 let playerChoice;
+let computerScore = 0;
+let playerScore = 0;
 
 function computerPlay() {
     let x;
@@ -34,35 +36,43 @@ function playRound(){
     }
     if(computerChoice == 0 && playerChoice == 1){
         console.log("You win! Paper beats rock");
+        playerScore++;
     }
     if(computerChoice == 0 && playerChoice == 2){
         console.log("You lose! Rock beats scissors");
+        computerScore++;
     }
     if(computerChoice == 1 && playerChoice == 0){
-        console.log("You lose! Paper beats rock")
+        console.log("You lose! Paper beats rock");
+        computerScore++;
     }
     if(computerChoice == 1 && playerChoice == 2){
-        console.log("You win! Scissors beats paper")
+        console.log("You win! Scissors beats paper");
+        playerScore++;
     }
     if(computerChoice == 2 && playerChoice == 0){
-        console.log("You win! Rock beats scissors")
+        console.log("You win! Rock beats scissors");
+        playerScore++;
     }
     if(computerChoice == 2 && playerChoice == 1){
-        console.log("You lose! Scissors beats paper")
+        console.log("You lose! Scissors beats paper");
+        computerScore++;
     }
 }
+
 function game(){
-    let computerScore = 0;
-    let playerScore = 0;
-
-    while(computerScore <5 || playerScore<5){
+    while(computerScore <5 && playerScore<5){
+        computerPlay();
+        playerSelection();
         playRound();
+        console.log("Player Wins:"+playerScore);
+        console.log("CPU Wins:"+computerScore);
+        if(computerScore ==5){
+            console.log("CPU reaches 5 wins, you lost the game");
+        }
+        if(playerScore ==5){
+            console.log("Player reaches 5 wins, you won the game");
+        }
     }
-
 }
-
-computerPlay();
-playerSelection();
-playRound();
-console.log(computerChoice);
-console.log(playerChoice);
+game();
