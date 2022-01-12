@@ -10,4 +10,6 @@
 }
 
 .score{
+    flex:1;
+    padding-left: 100px;
 }

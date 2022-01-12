@@ -53,7 +53,6 @@ function computerPlay() {
 
 
 function playRound(){
-    endGame();
     if(computerChoice == playerChoice){
         text.nodeValue ="Draw!"
     }
@@ -103,37 +102,40 @@ function chooseRock(){
     playerChoice = 0;
     computerPlay();
     playRound();
+    endGame();
 }
 function choosePaper(){
     playerChoice = 1;
     computerPlay();
     playRound();
+    endGame();
 }
 function chooseScissors(){
     playerChoice = 2;
     computerPlay();
     playRound();
+    endGame();
 }
 
 function endGame(){
-    if(computerScore >= 5){
+    if(computerScore == 5){
         text.nodeValue ="You lose! CPU reached 5 wins!";
-        alert("CPU Wins");
         playerScore = 0;
         computerScore = 0;
         playerScoreValue.nodeValue = "Player Score:"+playerScore;
         cpuScoreValue.nodeValue = "Computer Score:"+computerScore;
+        alert("CPU Wins");
 
 
 
     }
-    if(playerScore >= 5){
+    if(playerScore == 5){
         text.nodeValue ="You win! Player reached 5 wins!";
-        alert("Player Wins");
         playerScore = 0;
         computerScore = 0;
         playerScoreValue.nodeValue = "Player Score:"+playerScore;
         cpuScoreValue.nodeValue = "Computer Score:"+computerScore;
+        alert("Player Wins");
 
     }
 }
