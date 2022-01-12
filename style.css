@@ -1,0 +1,13 @@
+.main{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.gameplay{
+    display: flex;
+    flex-direction: column;
+}
+
+.score{
+}
